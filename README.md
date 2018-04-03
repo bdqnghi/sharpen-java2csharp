@@ -1,12 +1,17 @@
+# Overview
+
+This is the follow up work of my accepted paper **Hierarchical Learning of Cross-Language Mappings through Distributed Vector Representations for Code** at <a href="https://www.icse2018.org/">the 40st International Conference for Software Engineering (ICSE'2018). </a>
+
+We proposed a novel approach to learn the mappings across programming languages (Java & C#). Our result shows that we can mine 400 more mappings of the SDK library, which outperformed the state-of-the-art approaches. In this repo, we add such mappings into the configuration file, thus making the tool to be able to cover more translation cases. Moreover, our contributions are:
+
+- Adding massive number of mappings and dependency jars into the core module, thus making the tool to be able to cover more translation cases.
+- Fixing some minor bugs in the core module, adding more descriptive information on how to run the tool.
+
+You can find the paper here: https://arxiv.org/abs/1803.04715.
+
+For the original source code and more information, please refer to : https://github.com/mono/sharpen
+
 # Sharpen - Automated Java->C# coversion
-
-[imazen/sharpen](https://github.com/imazen/sharpen) [![master](https://img.shields.io/travis/imazen/sharpen/master.svg?label=imazen%20master)](https://travis-ci.org/imazen/sharpen/builds)[![imazen master - AppVeyor](https://ci.appveyor.com/api/projects/status/qxrbmyx70iuoev0x/branch/master?svg=true&passingText=imazen%20master%20-%20passing&failingText=imazen%20master%20-%20failed)](https://ci.appveyor.com/project/imazen/sharpen/branch/master) [![develop](https://img.shields.io/travis/imazen/sharpen/develop.svg?label=imazen%20develop)](https://travis-ci.org/imazen/sharpen/builds)
-[![imazen develop - AppVeyor](https://ci.appveyor.com/api/projects/status/qxrbmyx70iuoev0x/branch/develop?svg=true&passingText=imazen%20develop%20-%20passing&failingText=imazen%20develop%20-%20failed)](https://ci.appveyor.com/project/imazen/sharpen/branch/develop)
-
-[slluis/sharpen](https://github.com/imazen/sharpen) [![master](https://img.shields.io/travis/slluis/sharpen/master.svg?label=slluis%20master)](https://travis-ci.org/slluis/sharpen/builds)[![slluis master - AppVeyor](https://ci.appveyor.com/api/projects/status/[projectid]/branch/master?svg=true&passingText=slluis%20master%20-%20passing&failingText=slluis%20master%20-%20failed)](https://ci.appveyor.com/project/slluis/sharpen/branch/master) [![develop](https://img.shields.io/travis/slluis/sharpen/develop.svg?label=slluis%20develop)](https://travis-ci.org/slluis/sharpen/builds)
-[![slluis develop - AppVeyor](https://ci.appveyor.com/api/projects/status/[projectid]/branch/develop?svg=true&passingText=slluis%20develop%20-%20passing&failingText=slluis%20develop%20-%20failed)](https://ci.appveyor.com/project/slluis/sharpen/branch/develop)
-
-
 
 Sharpen is a library and command-line tool for automating Java to C# code conversion. You can provide configuration classes to control a wide range of class and functionality mapping.
 
@@ -21,8 +26,7 @@ Sharpen was originally created by db40 [svn source here](https://source.db4o.com
 
 1. Clone this repository
 2. Install Java 7 and maven. Java 6 and 8 aren’t supported.
-3. Run ‘mvn clean test’ to test
-4. Run ‘mvn install ’ to generate .jar files in /sharpen.core/target
+3. Run ‘mvn clean install -DskipTests’ to build the project and generate .jar files in /sharpen.core/target . Most of the test case taken from the original source code will fail if you don't add the parameter "-DskipTests".
 
 ### Running sharpen
 
@@ -33,7 +37,7 @@ Sharpen was originally created by db40 [svn source here](https://source.db4o.com
 
 ### Sharpen allows for configuration through code
 
-Sharpen’s command-line options don’t let you fully override all conversion options and behaviour. For example if you need to change mapping of primitive types or allow/deny mapping between iterators and enumerators, ...
+Sharpen’s command-line options don’t let you fully override all conversion options and behavior. For example if you need to change mapping of primitive types or allow/deny mapping between iterators and enumerators, ...
 
 #### Creating external config class
 
@@ -42,7 +46,7 @@ Your external configuration class must:
 * must be publicly visible;
 * must have a public constructor;
 
-An example configuration project can be found here https://github.com/ydanila/sharpen_imazen_config.
+A sample external configuration file, with more mapping has been added: sharpen.core/src/sharpen/config/CustomConfiguration.java
 
 #### Using your custom config class
 
@@ -50,7 +54,7 @@ Name your jar file `<configuration class name>`.sharpenconfig.jar in the sharpen
 
 For example, for the [XMP core port](https://github.com/ydanila/n-metadata-extractor/tree/xmp-core) with this prebuilt [Sharpen configuration](https://github.com/ydanila/sharpen_imazen_config) could be used as follows.
 ```
-java -jar sharpen-jar-with-dependencies.jar C:/java_src/ -configurationClass sharpen.config.MEConfiguration @sharpen-all-options-without-configuration
+java -jar sharpen-jar-with-dependencies.jar C:/java_src/ -configurationClass sharpen.config.CustomConfiguration @sharpen-all-options-without-configuration
 ```
 Configuration also could be specified in an options file. In this case, for the [XMP core port](https://github.com/ydanila/n-metadata-extractor/tree/xmp-core) with this prebuilt [Sharpen configuration](https://github.com/ydanila/sharpen_imazen_config) it could be used like this:
 ```
