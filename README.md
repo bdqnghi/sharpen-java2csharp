@@ -35,28 +35,6 @@ Sharpen was originally created by db40 [svn source here](https://source.db4o.com
     Each dependecy needed by the java source should be specified as a full path to the jar file. SOURCEPATH should also be a full path.
 3. Run -help for syntax
 
-### Sharpen allows for configuration through code
+### Tips
 
-Sharpen’s command-line options don’t let you fully override all conversion options and behavior. For example if you need to change mapping of primitive types or allow/deny mapping between iterators and enumerators, ...
-
-#### Creating external config class
-
-Your external configuration class must:
-* inherit [Configuration](sharpen.core/src/sharpen/core/Configuration.java) class;
-* must be publicly visible;
-* must have a public constructor;
-
-A sample external configuration file, with more mapping has been added: sharpen.core/src/sharpen/config/CustomConfiguration.java
-
-#### Using your custom config class
-
-Name your jar file `<configuration class name>`.sharpenconfig.jar in the sharpen directory. Then specify the full configuration name via the command line parameter `-configurationClass` (or via the options file).
-
-For example, for the [XMP core port](https://github.com/ydanila/n-metadata-extractor/tree/xmp-core) with this prebuilt [Sharpen configuration](https://github.com/ydanila/sharpen_imazen_config) could be used as follows.
-```
-java -jar sharpen-jar-with-dependencies.jar C:/java_src/ -configurationClass sharpen.config.CustomConfiguration @sharpen-all-options-without-configuration
-```
-Configuration also could be specified in an options file. In this case, for the [XMP core port](https://github.com/ydanila/n-metadata-extractor/tree/xmp-core) with this prebuilt [Sharpen configuration](https://github.com/ydanila/sharpen_imazen_config) it could be used like this:
-```
-java -jar sharpen-jar-with-dependencies.jar C:/java_src/ @sharpen-all-options
-```
+If you want to add more mappings, go to <a href="https://github.com/bdqnghi/sharpen-java2csharp/blob/master/src/main/sharpen/core/DefaultConfiguration.java">DefaultConfiguration</a> to add more mappings and rebuild the package. Trying to use an external configuration file will lead you to some configuration trouble, which is not worthwhile.
