@@ -2,7 +2,7 @@
 
 This is the follow up work of my accepted paper **Hierarchical Learning of Cross-Language Mappings through Distributed Vector Representations for Code** at <a href="https://www.icse2018.org/">the 40st International Conference for Software Engineering (ICSE'2018). </a>
 
-We proposed a novel approach to learn the mappings across programming languages (Java & C#). Our result shows that we can mine 400 more mappings of the SDK library, which outperformed the state-of-the-art approaches. In this repo, we add such mappings into the configuration file, thus making the tool to be able to cover more translation cases. Moreover, our contributions are:
+We proposed a novel approach to learn the mappings across programming languages (Java & C#). Our result shows that we can mine 400 more mappings of the SDK library, which outperformed the state-of-the-art approaches. In this repo, we add such mappings into the configuration file, thus making the tool to be able to cover more translation cases. In short, our contributions in this repo are:
 
 - Adding massive number of mappings and dependency jars into the core module, thus making the tool to be able to cover more translation cases.
 - Fixing some minor bugs in the core module, adding more descriptive information on how to run the tool.
