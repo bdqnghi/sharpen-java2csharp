@@ -1,0 +1,52 @@
+namespace javadoc
+{
+	/// <summary><see cref="ILinked"/></summary>
+	internal interface ILinked
+	{
+		void foo();
+
+		void foo(int value);
+	}
+
+	/// <summary>
+	/// <see cref="ILinked">Label</see>
+	/// <see cref="ILinked">Double Label</see>
+	/// <see cref="ILinked">ILinked</see>
+	/// <see cref="ILinked">ILinked</see>
+	/// <see cref="foo"/>
+	/// </summary>
+	public class LinkWithLabel
+	{
+		public int foo;
+	}
+
+	/// <summary>
+	/// <see cref="ILinked.foo()"/>
+	/// <see cref="ILinked.foo()"/>
+	/// <see cref="ILinked.foo(int)"/>
+	/// <see cref="bar()"/>
+	/// <see cref="bar()"/>
+	/// <see cref="bar()"/>
+	/// </summary>
+	internal class Link
+	{
+		private class Inner
+		{
+		}
+
+		/// <summary>
+		/// <see cref="ILinked.foo()"/>
+		/// <see cref="ILinked"/>
+		/// <see>fooBar()</see>
+		/// <see cref="LinkWithLabel.foo"/>
+		/// <see cref="bar()"/>
+		/// </summary>
+		public virtual void bar()
+		{
+		}
+
+		private void fooBar()
+		{
+		}
+	}
+}

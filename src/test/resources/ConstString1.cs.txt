@@ -1,0 +1,4 @@
+public class ConstString1
+{
+	public const string Message = "This is an ex parrot!";
+}

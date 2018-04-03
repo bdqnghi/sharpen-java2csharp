@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Annotation profile for sharpencore" enabled="true">
+        <sourceOutputDir name="src/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="src/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sharpencore" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sharpencore" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

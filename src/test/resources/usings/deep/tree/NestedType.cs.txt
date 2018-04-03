@@ -1,0 +1,11 @@
+namespace Usings.Deep.Tree
+{
+	public class NestedType
+	{
+		private class Test
+		{
+		}
+
+		private NestedType.Test[] _tests;
+	}
+}
